@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorTile : MonoBehaviour
+[CreateAssetMenu(menuName = "Scriptable Objects/FloorTiles/Base")]
+public class FloorTile : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject prefab;
+    public bool spawned, placed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
