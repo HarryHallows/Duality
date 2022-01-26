@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870d8b569301e3b40ab61fe1805bde7b, type: 3}
   m_Name: WallTest
   m_EditorClassIdentifier: 
-  prefab: {fileID: 884529996737509331, guid: 08477ec37e58dc54f881ebc9d562fe19, type: 3}
+  prefab: {fileID: 0}
+  spawned: 1
+  placed: 1

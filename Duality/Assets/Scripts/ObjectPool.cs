@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public static ObjectPool Instance;
+    //public static ObjectPool Instance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
 
     private void Awake()
     {
-        Instance = this;
+        //Instance = this;
     }
 
     private void Start()
@@ -32,7 +32,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObjects()
     {
         for (int i = 0; i < amountToPool; i++)
         {

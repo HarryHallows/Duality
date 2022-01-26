@@ -9,8 +9,6 @@ public class TileController : MonoBehaviour
     private void Start()
     {
         tile.spawned = true;
-
-
     }
 
     private void Update()

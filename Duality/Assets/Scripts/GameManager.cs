@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPooledFloor()
     {
-        ObjectPool.Instance.objectToPool = floorTilePrefab;
-        ObjectPool.Instance.amountToPool = 64;
+        //ObjectPool.Instance.objectToPool = floorTilePrefab;
+        //ObjectPool.Instance.amountToPool = 64;
     }
 
     private void Update()
@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour
     private void SpawnPooledWalls()
     {
         //ObjectPool.Instance.pooledObjects.Clear();
-        ObjectPool.Instance.objectToPool = wallTilePrefab;
-        ObjectPool.Instance.amountToPool = 2;
+        //ObjectPool.Instance.objectToPool = wallTilePrefab;
+        //ObjectPool.Instance.amountToPool = 2;
 
-        ObjectPool.Instance.AddObjectsToScene();
+        //ObjectPool.Instance.AddObjectsToScene();
         wallPooled = true;
         return;
     }

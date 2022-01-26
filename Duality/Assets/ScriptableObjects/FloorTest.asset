@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: FloorTest
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  spawned: 1
+  placed: 1

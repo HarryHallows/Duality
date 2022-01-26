@@ -6,4 +6,6 @@ using UnityEngine;
 public class WallTile : ScriptableObject
 {
     public GameObject prefab;
+    public bool spawned, placed;
+
 }
