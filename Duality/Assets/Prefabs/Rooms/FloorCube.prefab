@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3029449494727283511}
   - component: {fileID: 8957651230292367052}
   - component: {fileID: 1161364622152311841}
+  - component: {fileID: 2831481373144253296}
   m_Layer: 0
   m_Name: FloorCube
   m_TagString: Untagged
@@ -103,9 +104,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340440404592002466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1320134ff3decb14fa0da05c7a42ba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: 695976afc9d0ea14aa45b3aeebb6ab21, type: 2}
+  placedDown: 0
+--- !u!114 &2831481373144253296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340440404592002466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c072a27876696884ea3fed3989cb69ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedDown: 0
+  desiredDepth: 0
+  removeDepth: -10
+  moveSpeed: 0

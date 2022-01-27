@@ -5,9 +5,16 @@ using UnityEngine;
 public class WallController : MonoBehaviour
 {
 
+    [SerializeField] private GameManager gm;
     [SerializeField] private Animator cameraAnim;
 
     public WallTile tile;
+
+    private void Awake()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
+
     private void Start()
     {
         tile.spawned = true;
@@ -24,7 +31,7 @@ public class WallController : MonoBehaviour
     {
         if (transform.position.y > 20)
         {
-            Debug.Log(transform.position.y);
+            //Debug.Log(transform.position.y);
             transform.position -= new Vector3(0, 90 * Time.deltaTime, 0);
             tile.placed = true;
         }
@@ -32,7 +39,19 @@ public class WallController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 20, transform.position.z);
             cameraAnim.SetTrigger("CameraShake");
-            yield return null;
+
+
+            if (gm.wallPlacedCount >= 2)
+            {
+                gm.EnvrionmentRotate(true);
+                yield return null;
+            }
+            else
+            {
+                gm.wallPlacedCount++;
+                yield return null;
+            }
+
         }
     }
 }

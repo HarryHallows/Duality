@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public enum PoolObjectType
 {
     FLOOR,
-    WALL
+    WALL,
+    Area1,
+    Area2,
+    Area3,
+
 }
 
 
@@ -25,7 +27,7 @@ public class PoolInfo
 
 public class PoolManager : Singleton<PoolManager>
 {
-    [SerializeField] List<PoolInfo> listOfPool;
+    [SerializeField] public List<PoolInfo> listOfPool;
     private Vector3 defaultPosition = Vector3.zero;
 
     private void Start()
@@ -93,4 +95,5 @@ public class PoolManager : Singleton<PoolManager>
         }
         return null;
     }
+
 }

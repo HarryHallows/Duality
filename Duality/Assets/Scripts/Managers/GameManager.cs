@@ -11,11 +11,17 @@ public class GameManager : MonoBehaviour
 
     public bool combatState;
 
+    public bool rotateEnvironment;
+    public int wallPlacedCount;
+
+
     [SerializeField] private bool wallPooled;
+
+    public bool outsideScene;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         spawner = FindObjectOfType<Spawner>();
         SpawnPooledFloor();
     }
@@ -23,6 +29,11 @@ public class GameManager : MonoBehaviour
     public bool Combat(bool _combatState)
     {
         return combatState = _combatState;
+    }
+
+    public bool EnvrionmentRotate(bool _envrionmentReady)
+    {
+        return rotateEnvironment = _envrionmentReady;
     }
 
     private void SpawnPooledFloor()
