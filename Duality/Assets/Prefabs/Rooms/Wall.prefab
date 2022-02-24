@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 884529996737509342}
   - component: {fileID: 884529996737509341}
   - component: {fileID: 8923040543019468896}
+  - component: {fileID: 6916181409623476970}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -103,9 +104,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884529996737509331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90459f0505abbb04d982ccf80faa728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  cameraAnim: {fileID: 0}
   tile: {fileID: 11400000, guid: 84fba0aa0f4834e47bf642f11eb31840, type: 2}
+--- !u!114 &6916181409623476970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884529996737509331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c072a27876696884ea3fed3989cb69ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedDown: 0
+  desiredDepth: 20
+  removeDepth: -20
+  moveSpeed: 0
+  remove: 0
+  pool: 0
+  heavy: 1
+  scale: 1
+  camAnim: {fileID: 0}
+  poolObj: 1
+  localScalePrefence: {x: 8, y: 7, z: 0.5}

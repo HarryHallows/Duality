@@ -13,12 +13,21 @@ public enum NavigationDirections
 
 public class NavigationButtons : MonoBehaviour
 {
+    [SerializeField] private GameManager gm;
     [SerializeField] private NavigationDirections directions;
+
+    [SerializeField] private PoolObjectType currentArea;
+    [SerializeField] private GameAreas newArea;
+
     [SerializeField] private UIManager um;
-    Button button;
+
+    [SerializeField] private bool outside, currentOutside;
+
+    private Button button;
 
     private void Awake()
     {
+        gm = GameManager.Instance;
         button = GetComponent<Button>();
         um = FindObjectOfType<UIManager>();
 
@@ -35,20 +44,41 @@ public class NavigationButtons : MonoBehaviour
     {
         Debug.Log($"You have clicked {gameObject.name}!");
 
+        um.SpawnerToRemoveFloor(currentArea);
+        GameManager.Instance.EnvrionmentRotate(false);
+
+        /* if (!currentOutside)
+         {
+             um.SpawnerToRemoveWalls(currentArea);
+         }
+        */
         switch (directions)
         {
             case NavigationDirections.NORTH:
-                um.NorthDirection();
+                //LOAD NEXT AREA
+                gm.areas = newArea;
                 break;
             case NavigationDirections.EAST:
-                um.EastDirection();
+                //LOAD NEXT AREA
+                gm.areas = newArea;
                 break;
             case NavigationDirections.SOUTH:
-                um.SouthDirection();
+                //LOAD NEXT AREA
+                gm.areas = newArea;
                 break;
             case NavigationDirections.WEST:
-                um.WestDirection();
+                //LOAD NEXT AREA
+                gm.areas = newArea;
                 break;
+        }
+
+        if (outside)
+        {
+            gm.outsideScene = true;
+        }
+        else
+        {
+            gm.outsideScene = false;
         }
     }
 }

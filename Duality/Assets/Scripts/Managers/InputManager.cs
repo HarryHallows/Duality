@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private GameManager gm;
     private RaycastHit hit;
+    [SerializeField] private GameObject currentHit;
     private Ray ray;
     [SerializeField] private Camera cam;
 
@@ -16,61 +17,77 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-        environment = GameObject.FindGameObjectWithTag("EnvironmentRoot");
         gm = GetComponent<GameManager>();
+    }
+
+    private void Start()
+    {
+        environment = gm.environment;
     }
 
     // Update is called once per frame
     void Update()
     {
-        InputCheck();
         CastRay();
-    }
-
-    private void InputCheck()
-    {
-
     }
 
     private void CastRay()
     {
         Ray _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        CheckRotation();
+        Interactables(_ray);
+    }
+
+    private void CheckRotation()
+    {
+        if (hit.collider != null)
+        {
+            if (Input.GetMouseButton(0) && gm.rotateEnvironment && hit.collider.tag != "Navigation")
+            {
+                gm.RotateEnvironment(-Input.mousePosition.x);
+            }
+        }
+
+    }
+
+    private void Interactables(Ray _ray)
+    {
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity, interactableLayers))
         {
-            Debug.Log("Raycasting");
-            Debug.Log(hit.collider.name);
-
             if (Input.GetMouseButtonDown(0) && hit.collider.tag != "Navigation")
             {
                 Debug.Log($"You have selected {hit.transform.name}");
                 //Bring forward object into interaction position
+                currentHit.GetComponent<InteractableObject>().SelectedObject(true);
             }
-            else
+
+            if (hit.collider != null && hit.collider.tag != "Navigation")
             {
                 Debug.Log($"You have hovered {hit.transform.name}");
                 //Call Coroutine
                 //Highlight object (increase localscale)
+
+                //assigns the current collider data to current hit 
+                currentHit = hit.collider.gameObject;
+
+                currentHit.GetComponent<InteractableObject>().hovering = true;
+
+                Debug.Log($"Current Hit: {currentHit.name} + Hit: {hit.collider.name}");
             }
         }
         else
         {
-            if (Input.GetMouseButton(0) && gm.rotateEnvironment /**/)
+            if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
             {
-                //Debug.Log(Input.mousePosition.x);
-                RotateEnvironment(-Input.mousePosition.x);
-            }
-            else
-            {
-                Quaternion _resetRotation = Quaternion.Euler(environment.transform.eulerAngles.x, 0, environment.transform.eulerAngles.z);
-                environment.transform.rotation = Quaternion.Slerp(environment.transform.rotation, _resetRotation, 0.9f * Time.deltaTime);
+                if (currentHit != null)
+                {
+                    if (hit.collider.gameObject != currentHit)
+                    {
+                        currentHit.GetComponent<InteractableObject>().hovering = false;
+                    }
+                }
             }
         }
-    }
-
-    private void RotateEnvironment(float _mousePosition)
-    {
-        Quaternion _desiredRotation = Quaternion.Euler(environment.transform.eulerAngles.x, _mousePosition, environment.transform.eulerAngles.z);
-        environment.transform.rotation = Quaternion.Slerp(environment.transform.rotation, _desiredRotation, 0.03f);
     }
 }

@@ -127,3 +127,5 @@ MonoBehaviour:
   desiredDepth: 0
   removeDepth: -10
   moveSpeed: 0
+  remove: 0
+  pool: 1

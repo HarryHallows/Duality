@@ -6,9 +6,13 @@ public enum PoolObjectType
 {
     FLOOR,
     WALL,
-    Area1,
-    Area2,
-    Area3,
+    GUIDEPOST,
+    HOUSE_ENTRANCE,
+    HOUSE_KITCHEN,
+    HOUSE_LANDING,
+    HOUSE_BEDROOM,
+    HOUSE_BATHROOM,
+    PARK,
 
 }
 
@@ -21,7 +25,6 @@ public class PoolInfo
     public GameObject prefab;
     public GameObject container;
 
-    [HideInInspector]
     public List<GameObject> pool = new List<GameObject>();
 }
 

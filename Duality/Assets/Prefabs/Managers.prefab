@@ -45,13 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e28f059f51cabd41a2956093d6532ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroy: 0
   floorTilePrefab: {fileID: 1340440404592002466, guid: 98406933375086c40934794348fc1deb, type: 3}
   wallTilePrefab: {fileID: 884529996737509331, guid: 08477ec37e58dc54f881ebc9d562fe19, type: 3}
   combatState: 0
   rotateEnvironment: 0
   wallPlacedCount: 0
   wallPooled: 0
-  outsideScene: 0
+  outsideScene: 1
 --- !u!114 &3452779215841172355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,3 +83,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb92158bc4004d4797c9807e234bd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
