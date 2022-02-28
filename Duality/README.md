@@ -8,7 +8,6 @@
 1) Clone repo
 2) Install Unity Hub and install editor version 2020.3.24f1 (https://unity3d.com/get-unity/download/archive)
 3) Open through Unity Hub portal by clicking "Open" > *local file directory* > 'Duality' folder.
-   
    ![How to open project](https://media.giphy.com/media/zBUNTGvqp9gz4gyChA/giphy.gif)
 4) Once project is open navigate to the Scripts folder to access all of the source code for the project.
 
